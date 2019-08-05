@@ -1,0 +1,136 @@
+<style>
+  .nav div ul h1 a{
+    color:black;
+    font-weight:900;
+    font-size:54px;
+  }
+  .nav div div ul h1 a{
+    font-size:54px;
+  }
+  .row div ul li a{
+    font-weight:bold;
+    margin-left:15px;
+  }
+  .panel div a{
+    color:black;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #navbar {
+    background-color: #333;
+    position: fixed;
+    top: -50px;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    z-index:10;
+  }
+
+  #navbar a {
+    float: left;
+    display: block;
+    /* text-align: center; */
+    text-decoration: none;
+  }
+
+  #navbar a:hover {
+    /* color: black; */
+  }
+</style>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-70px";
+  }
+}
+</script>
+<nav class="navbar row navbar-expand-lg navbar-light bg-white d-block border-bottom" id="navbar" style="height:60px;" >
+  <div class="ul-content">
+    <ul class="nav-item nav-link" style="float:right;">
+      <% if current_user %>
+        <%= link_to destroy_user_session_path, style:"color:black", data:{method: :delete} do %>logout
+          <%= fa_icon "close", style:"color:black" %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, style:"color:black" do %>login
+          <%= fa_icon "circle", style:"color:black" %>
+        <% end %>
+      <% end %>
+    </ul>
+    <ul class="dropdown pl-0" style="float:right">
+      <button class="btn btn-secondary dropdown-toggle" style="background-color:white; color:black" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <i class="fa fa-user">Mypage</i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="float:left;" >
+        <a class="dropdown-item" href="/orders">주문내역</a>
+        <a class="dropdown-item" href="/wish_lists">찜목록</a>
+        <a class="dropdown-item" href="/users/edit">회원정보</a>
+      </div>
+    </ul>
+    <ul class= "nav-item nav-link" style="float:right">
+      <%= fa_icon "heart"%>
+      <a href="/wish_lists" style="color:black">My heart</a>
+    </ul>
+    <ul class="nav-item nav-link" style="float:right">
+      <%= fa_icon "bell"%>
+      <a href="/contacts" style="color:black;">Contact</a>
+    </ul>
+    <ul class= "nav-item nav-link" style="float:right">
+      <%= fa_icon "shopping-cart"%>
+      <a href="/orders/cart" style="color:black">cart</a>
+    </ul>
+    <a class="navbar-brand" href="/" style="outline:double; padding:5px; font-weight:900;">닭발먹고싶다</a>
+  </div>
+</nav>
+<div class="panel row sticky-top" style="float:right; top:10rem; margin-right:2rem; z-index:5;">
+<!-- 사이드 바 메뉴-->
+  <!-- 패널 타이틀1 -->
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">메뉴</h4>
+    </div>
+    <!-- 사이드바 메뉴목록1 -->
+    <ul class="list-group">
+      <span class="list-group-item"><%= link_to "Home", root_path %></span>
+      <span class="list-group-item"><%= link_to "Products", products_path %></span>
+      <span class="list-group-item"><a href="#">Wish-list</a></span>
+    </ul>
+  </div>
+</div>
+<div class="nav head-top" style="background-color:white; margin-top:1.5rem;">
+  <div class="nav">
+      <ul class="nav-item">
+        <h1 class=category_kind style="font-size:50px;">
+          <a href="/products">Special-Order</a>
+          <a href="category-0">Ring</a>
+          <a href="category-1">Necklace</a>
+          <a href="category-2">earring</a>
+        </h1>
+      </ul>
+    </div>
+  </div>
+  <div class="row border-bottom ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="collapse navbar-collapse pl-4" id="navbarSupportedContent" style="margin:-15px;">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item" style="align:right;">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
