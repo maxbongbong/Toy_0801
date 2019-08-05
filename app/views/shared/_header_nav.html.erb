@@ -86,7 +86,7 @@ function scrollFunction() {
       <%= fa_icon "shopping-cart"%>
       <a href="/orders/cart" style="color:black">cart</a>
     </ul>
-    <a class="navbar-brand" href="/" style="outline:double; padding:5px; font-weight:900;">닭발먹고싶다</a>
+    <a class="navbar-brand" href="/" style="outline:double; padding:6px; margin-left:7px; font-weight:900;">닭발먹고싶다</a>
   </div>
 </nav>
 <div class="panel row sticky-top" style="float:right; top:10rem; margin-right:2rem; z-index:5;">
@@ -99,8 +99,10 @@ function scrollFunction() {
     <!-- 사이드바 메뉴목록1 -->
     <ul class="list-group">
       <span class="list-group-item"><%= link_to "Home", root_path %></span>
-      <span class="list-group-item"><%= link_to "Products", products_path %></span>
+      <span class="list-group-item"><%= link_to "Product", products_path %></span>
       <span class="list-group-item"><a href="#">Wish-list</a></span>
+      <span class="list-group-item"><a href="#">Myheart</a></span>
+      <span class="list-group-item"><%= link_to "Contact", contacts_path %></span>
     </ul>
   </div>
 </div>
