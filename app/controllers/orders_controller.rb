@@ -14,12 +14,18 @@ class OrdersController < ApplicationController
   end
 
   def cart
+    @order = get_cart
   end
 
   def payment
+    @order = get_cart
   end
 
   def payment_completed
+    @order = get_cart
+    @order.update(order_params)
+    @order.update(completed_at: Time.now)
+    redirect_to order_path(@order)
   end
 
 private

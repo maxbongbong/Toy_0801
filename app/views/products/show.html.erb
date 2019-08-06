@@ -1,2 +1,45 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container" >
+  <div class="row">
+    <div class="col-md-6" style="">
+      <div class = "product-detail" align="center">
+      <!-- 물품 정보 -->
+        <div class = "detail_image pb-2" style="margin-top:4rem;">
+          <%= image_tag(@product.image_url, class:"work-img ", alt:"", style:"height:200px;")%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 pb-2" style="padding-top:20px;" >
+      <h3 class="product-title  border-bottom py-3" >
+        <%= @product.title %>
+      </h3>
+      <div class="py-2">
+        <div class="info_Area">
+          <ui style="display-block py-1">내용 : <%= @product.body %></ui>
+        </div>
+        <ui>구매제한 : 최소 1개</ui>
+        <p>배송비 : 무료</p>
+        <div class="info_Area py-1">
+          <strong>가격 : <%= number_with_delimiter(@product.price) %>원</strong>
+        </div>
+      </div>
+      <div class="cart_btn border-top py-4" style="text-align:left;">
+        <%= link_to "장바구니", add_cart_line_items_path(product_id: @product.id),class:"btn btn-lightgray mr-4" ,style:"background-color:#dcdcdc;" %>
+        <%= link_to "구매하기", add_cart_line_items_path(product_id: @product.id),class:"btn btn-secondary mr-4" %>
+        <%# <%= link_to "찜하기", "#", class:"add_wish_list_btn btn btn-dark", data: {alret: "찜하기 목록에 추가되었습니다."} %>
+      </div>
+    </div>
+    <div class="col-md-12 pt-5">
+      <img src="http://gi.esmplus.com/msmajor/wpi_hongsam_pouch.jpg" alt="" style="vertical-align:middle;">
+    </div>
+  </div>
+</div>
+<%# <%= form_for WishList.new, style: "visibility:hidden;" do |f| %>
+  <%# <%= f.hidden_field :user_id, value: current_user.id %>
+  <%# <%= f.hidden_field :product_id, value: @product.id %>
+<%# <% end %>
+
+<!-- <script>
+  $(".add_wish_list_btn").click(function(){
+    $("#new_wish_list").submit();
+  })
+</script> -->

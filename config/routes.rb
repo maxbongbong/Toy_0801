@@ -18,4 +18,10 @@ Rails.application.routes.draw do
       post :payment_completed
     end
   end
+  resources :line_items do
+    collection do # helper_method 사용 (application.controller)
+      get :add_cart
+      get :update_amount
+    end
+  end
 end
