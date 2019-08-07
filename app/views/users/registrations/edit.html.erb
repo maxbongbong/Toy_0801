@@ -1,4 +1,4 @@
-<div class="container" style="padding:250px;">
+<div class="container col-md-6" style="padding:1rem; outline:auto; width:30rem; margin-top:2rem;">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -32,14 +32,14 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
-    <div class="actions my-1">
+    <div class="actions mt-3">
       <%= f.submit "Update", class:"btn btn-dark" %>
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-dark" %></p>
-
-  <%= link_to "Back", :back %>
+  <h4 class="mt-3">Cancel my account</h4>
+  <div class="mt-3">
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-dark" %>
+    <%= link_to "Back", :back, class:"btn btn-dark", style:"float:right; margin-top:-2.5rem;" %>
+  </div>
 </div>

@@ -6,6 +6,7 @@ gem 'activeadmin'
 
 ruby '2.4.2'
 
+gem 'font-awesome-sass', '~> 5.9.0'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 # gem 'bootstrap', '~> 4.0.0.alpha6'

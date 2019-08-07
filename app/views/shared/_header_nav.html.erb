@@ -93,16 +93,16 @@ function scrollFunction() {
 <!-- 사이드 바 메뉴-->
   <!-- 패널 타이틀1 -->
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h4 class="panel-title">메뉴</h4>
+    <div class="panel-heading pb-2">
+      <span class="panel-title" style="margin-left:2.5rem;">메뉴<%= fa_icon "angle-double-down" %></span>
     </div>
     <!-- 사이드바 메뉴목록1 -->
     <ul class="list-group">
-      <span class="list-group-item"><%= link_to "Home", root_path %></span>
-      <span class="list-group-item"><%= link_to "Product", products_path %></span>
-      <span class="list-group-item"><a href="#">Wish-list</a></span>
-      <span class="list-group-item"><a href="#">Myheart</a></span>
-      <span class="list-group-item"><%= link_to "Contact", contacts_path %></span>
+      <span class="list-group-item"><%= link_to "Home", root_path %><%= fa_icon "home" %></span>
+      <span class="list-group-item"><%= link_to "Product", products_path %><%= fa_icon 'empire' %></span>
+      <span class="list-group-item"><%= link_to "Cart", cart_orders_path %><%= fa_icon "shopping-cart"%></span>
+      <span class="list-group-item"><%= link_to "Contact", contacts_path %><%= fa_icon "bell"%></span>
+      <span class="list-group-item"><a href="#">Myheart</a><%= fa_icon "heart"%></span>
     </ul>
   </div>
 </div>
