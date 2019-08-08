@@ -30,7 +30,7 @@
         <% @order.line_items.each_with_index do |line_item, index| %>
           <tr>
             <td><%= index+1 %></td>
-            <td><%= image_tag(line_item.product.image_url, alt:"", style:"width:80px;")%></td>
+            <td><%= image_tag(line_item.product.image_url, alt:"", style:"width:70px; height:65px;")%></td>
             <td><%= line_item.product.title %></td>
             <td><%= line_item.product.body %></td>
             <td><strong><span class="amount" id="amount-<%= line_item.id %>"><%= number_with_delimiter(line_item.product.price*(line_item.quantity ? line_item.quantity : 1)) %></span>원</strong></td>

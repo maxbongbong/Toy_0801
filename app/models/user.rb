@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :contacts, dependent: :nullify
   has_many :comments, dependent: :nullify
   has_many :orders, dependent: :nullify
+  has_many :wish_lists, dependent: :nullify
 end

@@ -4,12 +4,12 @@
       <div class = "product-detail" align="center">
       <!-- 물품 정보 -->
         <div class = "detail_image pb-2" style="margin-top:4rem;">
-          <%= image_tag(@product.image_url, class:"work-img ", alt:"", style:"height:200px;")%>
+          <%= image_tag(@product.image_url, class:"work-img ", alt:"", style:"height:21.5rem; width:23rem;")%>
         </div>
       </div>
     </div>
-    <div class="col-md-4 pb-2" style="padding-top:20px;" >
-      <h3 class="product-title  border-bottom py-3" >
+    <div class="col-md-4" style="outline:auto; height:21rem; margin-top:4.2rem;" >
+      <h3 class="product-title border-bottom py-4" >
         <%= @product.title %>
       </h3>
       <div class="py-2">
@@ -18,14 +18,15 @@
         </div>
         <ui>구매제한 : 최소 1개</ui>
         <p>배송비 : 무료</p>
-        <div class="info_Area py-1">
+        <div class="info_Area py-2">
           <strong>가격 : <%= number_with_delimiter(@product.price) %>원</strong>
         </div>
       </div>
       <div class="cart_btn border-top py-4" style="text-align:left;">
-        <%= link_to "장바구니", add_cart_line_items_path(product_id: @product.id),class:"btn btn-lightgray mr-4" ,style:"background-color:#dcdcdc;" %>
-        <%= link_to "구매하기", add_cart_line_items_path(product_id: @product.id),class:"btn btn-secondary mr-4" %>
-        <%# <%= link_to "찜하기", "#", class:"add_wish_list_btn btn btn-dark", data: {alret: "찜하기 목록에 추가되었습니다."} %>
+        <%= link_to "장바구니", add_cart_line_items_path(product_id: @product.id),class:"btn btn-lightgray", style:"background-color:#dcdcdc; margin-right:3rem;" %>
+        <%= link_to "구매하기", add_cart_line_items_path(product_id: @product.id),class:"btn btn-secondary", style:"margin-right:3rem;"%>
+        <!-- <input type="submit" value="찜하기" class="add_wish_list_btn btn btn-dark"> -->
+        <%= link_to "찜하기", "#", data:{confirm: "찜하시겠습니까?"},class:"add_wish_list_btn btn btn-dark" %>
       </div>
     </div>
     <div class="col-md-12 pt-5">
@@ -33,13 +34,12 @@
     </div>
   </div>
 </div>
-<%# <%= form_for WishList.new, style: "visibility:hidden;" do |f| %>
-  <%# <%= f.hidden_field :user_id, value: current_user.id %>
-  <%# <%= f.hidden_field :product_id, value: @product.id %>
-<%# <% end %>
-
-<!-- <script>
+<%= form_for WishList.new, style: "visibility:hidden;" do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+<% end %>
+<script>
   $(".add_wish_list_btn").click(function(){
     $("#new_wish_list").submit();
   })
-</script> -->
+</script>

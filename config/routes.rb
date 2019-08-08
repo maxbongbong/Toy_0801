@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :products
   resources :contacts
   resources :comments
+  resources :wish_lists
+
   resources :orders do
     collection do
       get :cart
