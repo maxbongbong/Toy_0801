@@ -6,7 +6,7 @@ lock "~> 3.11.0"
 set :application, "Toy_0801"
 set :repo_url, "git@github.com:maxbongbong/Toy_0801.git"
 # set :deploy_to, '/home/deploy/gymmon'
-set :deploy_to, '/home/ubuntu/Toy_0801'
+set :deploy_to, '/home/deploy/Toy_0801'
 set :keep_releases, 2
 
 # append :linked_files, "config/database.yml", "config/secrets.yml"
