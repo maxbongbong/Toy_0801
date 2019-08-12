@@ -1,6 +1,6 @@
 <div class="container" >
   <div class="row">
-    <div class="col-md-6" style="">
+    <div class="col-md-6">
       <div class = "product-detail" align="center">
       <!-- 물품 정보 -->
         <div class = "detail_image pb-2" style="margin-top:4rem;">
@@ -25,12 +25,11 @@
       <div class="cart_btn border-top py-4" style="text-align:left;">
         <%= link_to "장바구니", add_cart_line_items_path(product_id: @product.id),class:"btn btn-lightgray", style:"background-color:#dcdcdc; margin-right:3rem;" %>
         <%= link_to "구매하기", add_cart_line_items_path(product_id: @product.id),class:"btn btn-secondary", style:"margin-right:3rem;"%>
-        <!-- <input type="submit" value="찜하기" class="add_wish_list_btn btn btn-dark"> -->
         <%= link_to "찜하기", "#", data:{confirm: "찜하시겠습니까?"},class:"add_wish_list_btn btn btn-dark" %>
       </div>
     </div>
     <div class="col-md-12 pt-5">
-      <img src="http://gi.esmplus.com/msmajor/wpi_hongsam_pouch.jpg" alt="" style="vertical-align:middle;">
+      <img src="https://cdn.dcclub.co.kr/goods_img/1155/detail20190510/necklace_25BN_45.jpg" alt="" style="vertical-align:middle;">
     </div>
   </div>
 </div>
