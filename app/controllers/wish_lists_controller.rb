@@ -14,7 +14,7 @@ class WishListsController < ApplicationController
   def destroy
     wish_list = WishList.where(id: params[:id]).first
     wish_list.destroy
-    redirect_to wish_list_path
+    redirect_to wish_lists_path
   end
 
   def wish_list_params
