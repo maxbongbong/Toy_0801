@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_08_08_072716) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "contact_id"
+    t.bigint "user_id"
+    t.bigint "contact_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -65,8 +68,8 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
+    t.bigint "order_id"
+    t.bigint "product_id"
     t.integer "amount"
     t.string "state"
     t.integer "quantity"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
     t.string "address_1"
     t.string "address_2"
     t.string "state"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.text "note"
     t.datetime "paied_at"
     t.integer "payment_amount"
@@ -99,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -116,12 +119,21 @@ ActiveRecord::Schema.define(version: 2019_08_08_072716) do
   end
 
   create_table "wish_lists", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_wish_lists_on_product_id"
     t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 
+  add_foreign_key "comments", "contacts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "line_items", "orders"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "orders", "users"
+  add_foreign_key "products", "categories"
+  add_foreign_key "wish_lists", "products"
+  add_foreign_key "wish_lists", "users"
 end
