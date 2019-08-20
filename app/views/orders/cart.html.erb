@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <% if @order.present? %>
+      <% if @order.line_items.present? %>
         <% @order.line_items.each_with_index do |line_item, index| %>
           <tr>
             <td><%= index+1 %></td>
@@ -51,9 +51,9 @@
           </tr>
         <% end %>
       <% else %>
-        <td align="center">
+        <span class="col-md-12" style="text-align:center">
           장바구니가 비어 있습니다.
-        </td>
+        </span>
       <% end %>
     </tbody>
   </table>
