@@ -1,10 +1,18 @@
+<style>
+  .card-title div h5{
+    color:darkslategrey;
+  }
+  .card p{
+    color:darkslategrey;
+  }
+</style>
 <% line_item ||= nil %>
 <% if line_item.present? %>
   <div class="card-group my-3" style="margin-left:100px;">
     <div class="card" style="width:200px; height:220px;">
-      <%= image_tag(line_item.product.image_url, class:"card-img-top my-3", alt:"", style:"width:150px; height:180px;")%>
+      <%= image_tag(line_item.product.image_url, class:"card-img-top border-bottom", alt:"", style:"width:200px; height:220px;")%>
     </div>
-    <div class="card col-md-6 py-1" style="" >
+    <div class="card col-md-6 py-1" >
       <h5 class="card-title"><%= line_item.product.title %></h5>
       <p class="card-text"><%= line_item.product.body %></p>
       <p class="card-text text-muted">계 :<span id="quantity-<%= line_item.id %>"><%= number_with_delimiter(line_item.quantity ? line_item.quantity : 1) %></p>
