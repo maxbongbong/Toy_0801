@@ -46,10 +46,5 @@
 <script>
   $(".add_wish_list_btn").click(function(){
     $("#new_wish_list").submit();
-    success: function(data){
-    if (data.result == '찜하시겠습니까?'){
-      alert('찜목록에 추가되었습니다' + @product.id);
-    }
-    }  
   })
 </script>
