@@ -11,7 +11,7 @@
     text-align:center;
   }
 </style>
-<div class="container" style="padding-top:1.5rem;">
+<div class="container" style="padding-top:2rem; margin-left:110px;">
   <h4 class="title" style="line-height:3;">찜하기</h4>
   <table class="table border-bottom m-4">
     <thead>
@@ -29,11 +29,7 @@
         <% @wish_lists.each_with_index do |wish_list, index| %>
           <tr>
             <td><%= index+1 %></td>
-            <td>
-              <%= link_to product_path(wish_list.product) do %>
-                <%= image_tag(wish_list.product.image_url, alt:"", style:"width:50px;")%>
-              <% end %>
-            </td>
+            <td><%= image_tag(wish_list.product.image_url, alt:"", style:"width:70px; height:65px;")%></td>
             <td><%= wish_list.product.title %></td>
             <td><%= wish_list.product.body %></td>
             <td><%= number_with_delimiter(wish_list.product.price) %></td>
@@ -45,7 +41,7 @@
         <% end %>
       <% else %>
         <td align="center">
-          <%= "찜목록이 비어 있습니다." %>
+          찜목록이 비어 있습니다.
         </td>
       <% end %>
     </tbody>
