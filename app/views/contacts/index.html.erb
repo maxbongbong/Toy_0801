@@ -3,19 +3,20 @@
     color:white;
   }
   .container tbody h5{
+    text-overflow: ellipsis;
     color:black;
   }
   .table td{
-    vertical-align:unset;
     text-align:center;
-    /* padding: 5px; 12px; */
+    vertical-align:middle;
   }
   .table th{
     text-align:center;
   }
+
 </style>
-<div class="container" style="padding-top:3rem; margin-left:6rem;">
-  <h3 align="center">고객 센터 Q&A</h3>
+<div class="container" style="padding-top:2rem; margin-left:8rem;">
+  <h4 class="title" style="line-height:3; text-align:center;">고객 센터 Q&A</h4>
   <table class="table m-4 border-bottom">
     <thead>
       <tr>
@@ -23,7 +24,7 @@
         <th scope="col">제목</th>
         <th scope="col">내용</th>
         <th scope="col">email</th>
-        <th scope="col">#</th>
+        <th scope="col">-</th>
       </tr>
     </thead>
     <tbody>
@@ -37,12 +38,12 @@
             </td>
             <td>
               <%= link_to contact_path(contact) do %>
-                <h5><%= contact.title %></h5>
+                <h5><%= truncate contact.title %></h5>
               <% end %>
             </td>
             <td>
               <%= link_to contact_path(contact) do %>
-                <h5><%= contact.body %></h5>
+                <h5><%= truncate contact.body %></h5>
               <% end %>
             </td>
             <td>
@@ -60,12 +61,16 @@
             </td>
           </tr>
         <% end %>
-      <% else %>
-        <td align="center">
-          문의 내역이 없습니다.
-        </td>
-      <% end %>
     </tbody>
+    <% else %>
+      <tfoot align="center">
+        <tr>
+          <td colspan="5">
+            문의 내역이 없습니다.
+          </td>
+        </tr>
+      </tfoot>
+    <% end %>
   </table>
   <button type="button" class="btn btn-dark" style="float:right">
     <%= link_to "문의하기", new_contact_path, style:"border-radius:2px; color:white;" %>

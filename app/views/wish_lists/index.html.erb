@@ -11,8 +11,8 @@
     text-align:center;
   }
 </style>
-<div class="container" style="padding-top:2rem; margin-left:110px;">
-  <h4 class="title" style="line-height:3;">찜하기</h4>
+<div class="container" style="padding-top:2rem; margin-left:8rem;">
+  <h4 class="title" style="line-height:3; text-align:center;">찜하기</h4>
   <table class="table border-bottom m-4">
     <thead>
       <tr>
@@ -41,9 +41,13 @@
         <% end %>
       <% else %>
     </tbody>
+    <tfoot align="center">
+      <tr>
+        <td colspan="6" style="padding-top:20px; padding-bottom:15px; padding-right:12rem;">
+          <h5>찜목록이 비어 있습니다.</h5>
+        </td>
+      </tr>
+    </tfoot>
+    <% end %>
   </table>
-        <div class=col-md-12>
-          찜목록이 비어 있습니다.
-        </div>
-      <% end %>
 </div>

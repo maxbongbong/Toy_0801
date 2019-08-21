@@ -11,8 +11,8 @@
     text-align:center;
   }
 </style>
-<div class="container" style="padding-top:2rem; margin-left:110px;">
-  <h4 class="px-4 py-2">장바구니 목록</h4>
+<div class="container" style="padding-top:2rem; margin-left:8rem;">
+  <h4 class="title" style="line-height:3; text-align:center;">장바구니</h4>
   <table class="table border-bottom m-4">
     <thead>
       <tr>
@@ -50,23 +50,25 @@
             <td><%= link_to "삭제하기", line_item_path(line_item),class:"btn btn-dark", style:"", data:{method: :delete, confirm: "삭제하시겠습니까?"} %></td>
           </tr>
         <% end %>
-      <% else %>
-        <span class="col-md-12" style="text-align:center">
-          장바구니가 비어 있습니다.
-        </span>
-      <% end %>
     </tbody>
+    <tfoot align="center">
+      <tr>
+        <td colspan="7" style="padding-right:7rem; padding-top:20px; padding-bottom:15px;">
+          <h4><strong>총 :<span id="item-total"><%= number_with_delimiter @order.line_items.sum(:amount)%></span> 원</strong></h4>
+          <%= link_to "결제하기", payment_order_path(@order), class:"btn btn-dark" %>
+        </td>
+      </tr>
+    </tfoot>
+    <% else %>
+      <tfoot>
+        <tr>
+          <td colspan="7">
+            장바구니가 비어 있습니다.
+          </td>
+        </tr>
+      </tfoot>
+    <% end %>
   </table>
-  <div class="total-area" style= "float:right; text-align:center;">
-    <strong>총 :
-      <span id="item-total">
-        <%= number_with_delimiter @order.line_items.sum(:amount) %>
-      </span>원<hr>
-    </strong>
-    <div class="btn-buy mx-3 px-4" >
-      <%= link_to "결제하기", payment_order_path(@order), class:"btn btn-dark" %>
-    </div>
-  </div>
 </div>
 
 <script>
