@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 private
 
   def order_params
-    params.require(:order).permit(:number, :amount, :completed_at, :address_1, :address_2, :state, :note, :paied_at, :user_id, :payment_amount)
+    params.require(:order).permit(:number, :amount, :completed_at, :address_1, :address_2, :address_3, :post_code, :state, :note, :paied_at, :user_id, :payment_amount)
   end
 
   def load_object

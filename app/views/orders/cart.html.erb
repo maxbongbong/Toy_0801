@@ -55,7 +55,7 @@
       <tr>
         <td colspan="7" style="padding-right:7rem; padding-top:20px; padding-bottom:15px;">
           <h4><strong>총 :<span id="item-total"><%= number_with_delimiter @order.line_items.sum(:amount)%></span> 원</strong></h4>
-          <%= link_to "결제하기", payment_order_path(@order), class:"btn btn-dark" %>
+          <%= link_to "결제하기", payment_order_path(@order), class:"btn btn-dark ml-2" %>
         </td>
       </tr>
     </tfoot>

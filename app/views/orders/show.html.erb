@@ -5,6 +5,7 @@
   .table td{
     text-align:center;
     vertical-align:middle;
+    padding:unset;
   }
   .list div{
     vertical-align:middle;
@@ -17,14 +18,13 @@
   </div>
   <div class="list border-bottom border-top p-3" style="margin-top:25px;">
     <div>
-      결제일 : <%= @order.completed_at&.strftime("%Y/%m/%d %H:%M") %>
-    </div>
-    <div>
-      number : <%= @order.id %><br>
-    </div>
-    <div>
-      주소 : <%= @order.address_1 %> <br>
-      상세주소 : <%= @order.address_2 %>
+      결제일 : <%= @order.completed_at&.strftime("%Y/%m/%d %H:%M") %> <br>
+      주문번호 : <%= @order.id %> <br>
+      우편번호 : <%= @order.post_code %> <br>
+      도로명주소 : <%= @order.address_1 %> <br>
+      지번주소 : <%= @order.address_2 %> <br>
+      나머지주소 : <%= @order.address_3 %>
+      하고 싶은 말 : <%= @order.note %>
     </div>
   </div>
   <div class="span pt-4">
@@ -44,7 +44,7 @@
       <% if @order.present? %>
         <% @order.line_items.each do |line_item|  %>
           <tr>
-            <td><%= image_tag(line_item.product.image_url, alt:"", style:"height:40px;")%></td>
+            <td><%= image_tag(line_item.product.image_url, alt:"", style:"width:70px; height:65px;")%></td>
             <td><%= line_item.product.title %></td>
             <td><%= line_item.product.body %></td>
             <td><strong><%= number_with_delimiter(line_item.product.price) %> 원</strong></td>
@@ -55,8 +55,8 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="5" style="text-align:center; padding-bottom:10px;">
-          <span style="font-weight:bold; font-size:larger;">총 :<%= number_with_delimiter @order.line_items.sum(:amount) %> 원</span>
+        <td colspan="5" style="padding-right:7rem; padding-top:20px; padding-bottom:15px;">
+          <strong>총 :<span id="item-total"><%= number_with_delimiter @order.line_items.sum(:amount)%></span> 원</strong>
         </td>
       </tr>
     </tfoot>
