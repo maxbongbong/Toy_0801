@@ -9,6 +9,7 @@
   }
   .list div{
     vertical-align:middle;
+    margin-top:2px;
   }
 </style>
 <div class="container" style="padding-top:1.5rem;">
@@ -23,7 +24,7 @@
       우편번호 : <%= @order.post_code %> <br>
       도로명주소 : <%= @order.address_1 %> <br>
       지번주소 : <%= @order.address_2 %> <br>
-      나머지주소 : <%= @order.address_3 %>
+      나머지주소 : <%= @order.address_3 %> <br>
       하고 싶은 말 : <%= @order.note %>
     </div>
   </div>
