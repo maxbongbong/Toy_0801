@@ -53,10 +53,14 @@
         <% end %>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" style="text-align:center; padding-bottom:10px;">
+          <span style="font-weight:bold; font-size:larger;">총 :<%= number_with_delimiter @order.line_items.sum(:amount) %> 원</span>
+        </td>
+      </tr>
+    </tfoot>
   </table>
-  <div class="col-md-12 border-bottom" style="text-align:center;">
-    <span style="font-weight:bold; font-size:larger;">총 :<%= number_with_delimiter @order.line_items.sum(:amount) %> 원</span>
-  </div>
   <div class="row mx-2" style="float:right; margin-top:1rem;">
     <%= link_to "쇼핑더하기", products_path, class:"btn btn-dark mx-2", style:"float:right" %>
     <%= link_to "주문내역", orders_path, class:"btn btn-dark mx-2", style:"float:right" %>
