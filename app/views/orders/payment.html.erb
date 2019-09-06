@@ -73,13 +73,13 @@
       </div>
     </div>
   <% end %>
-  <button class="btn btn-dark", id="pay-btn", onclick="payment_btn()">결제하기</button>
+  <button class="btn btn-dark", onclick="payment_btn()">결제하기</button>
 </div>
 <script>
   function payment_btn(){
     alert("Hi, Mark!");
     var IMP = window.IMP; // 생략가능
-    IMP.init('imp37336175')
+    IMP.init('imp37336175')
     IMP.request_pay({
       pg : 'inicis', // version 1.1.0부터 지원.
       pay_method : 'card',
@@ -106,14 +106,14 @@
       alert(msg);
     });
     jquery.ajax({
-      type:"GET",
+      type:"POST",
       url:"<%= payment_completed_order_path %>",
       datatype:"",
       success:function(data){
         alert:"결제가 완료 되었습니다"
       },
     });
-}
+  }
 </script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 <script>
