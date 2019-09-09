@@ -72,13 +72,15 @@
       </div>
     </div>
   <% end %>
-  <form id="pgForm" class="btn btn-dark" name="pgForm" method="post" type="button" onclick="payment_btn()" style="float:right; ">결제하기
-    <input type="hidden" name="Amt" value="1500">
-  	<input type="hidden" name="BuyerName" value="홍길동">
-  	<input type="hidden" name="OrderName" value="결제테스트">
-    <input type="hidden" name="phone_num" value="폰번호">
-    <input type="hidden" name="price" value="가격">
-  </form>
+  <button type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기
+    <form id="pgForm" class="btn btn-dark" name="pgForm" method="post" type="button" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기
+      <input type="hidden" name="Amt" value="1500">
+    	<input type="hidden" name="BuyerName" value="홍길동">
+    	<input type="hidden" name="OrderName" value="결제테스트">
+      <input type="hidden" name="phone_num" value="폰번호">
+      <input type="hidden" name="price" value="가격">
+    </form>
+  </button>
 </div>
 <script>
   function payment_btn(){
@@ -109,14 +111,14 @@
       }
       alert(msg);
     });
-    jquery.ajax({
-      type:"POST",
-      url:"<%= payment_completed_order_path %>",
-      datatype:"",
-      success:function(data){
-        alert:"결제가 완료 되었습니다"
-      },
-    });
+    // jquery.$ajax({
+    //   type:"POST",
+      // url:"<%# payment_completed_order_path %>",
+    //   datatype:"",
+    //   success:function(data){
+    //     alert:"결제가 완료 되었습니다"
+    //   },
+    // });
   }
 </script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
