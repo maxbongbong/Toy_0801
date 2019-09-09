@@ -68,16 +68,21 @@
         <%= f.hidden_field :state, value: :complete %>
         <!-- <input type="button" class="btn btn-dark" onclick="payment_btn()" value="결제하기"> -->
         <%# <%= button "결제하기", class:"iamport-btn btn btn-dark", onclick:"payment-btn()", style:"margin-left:16.7rem; margin-bottom:10px; width:6rem;" %>
-        <!-- <a href=""></a> -->
         <!-- <button class="btn btn-dark" onload="payment_btn()">결제하기</button> -->
       </div>
     </div>
   <% end %>
-  <button class="btn btn-dark", onclick="payment_btn()">결제하기</button>
+  <form id="pgForm" class="btn btn-dark" name="pgForm" method="post" type="button" onclick="payment_btn()" style="float:right; ">결제하기
+    <input type="hidden" name="Amt" value="1500">
+  	<input type="hidden" name="BuyerName" value="홍길동">
+  	<input type="hidden" name="OrderName" value="결제테스트">
+    <input type="hidden" name="phone_num" value="폰번호">
+    <input type="hidden" name="price" value="가격">
+  </form>
 </div>
 <script>
   function payment_btn(){
-    alert("Hi, Mark!");
+    document.getElementById("pgForm")
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -85,13 +90,12 @@
       pay_method : 'card',
       merchant_uid : 'merchant_' + new Date().getTime(),
       name : '주문명:결제테스트',
-      amount : 14000,
+      amount : 1500,
       buyer_email : 'iamport@siot.do',
       buyer_name : '구매자이름',
-      buyer_tel : '010-1234-5678',
+      buyer_tel : '010-6248-6986',
       buyer_addr : '서울특별시 강남구 삼성동',
       buyer_postcode : '123-456',
-      m_redirect_url : 'https://www.yourdomain.com/payments/complete'
     }, function(rsp) {
       if ( rsp.success ) {
           var msg = '결제가 완료되었습니다.';
