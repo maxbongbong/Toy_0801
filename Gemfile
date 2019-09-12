@@ -5,7 +5,8 @@ gem 'devise'
 gem 'activeadmin'
 
 ruby '2.4.2'
-
+gem 'httparty'
+gem 'iamport'
 gem 'font-awesome-sass', '~> 5.9.0'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
