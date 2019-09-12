@@ -110,14 +110,14 @@
       }
       alert(msg);
     });
-    // jquery.ajax({
-    //   type:"POST",
-      // url:"<%# order_path %>",
-    //   datatype:"",
-    //   success:function(data){
-    //     alert:"결제가 완료 되었습니다"
-    //   },
-    // });
+    $.ajax({
+      type:"POST",
+      url:"<%= order_path %>",
+      datatype:"",
+      success:function(data){
+        alert:"결제가 완료 되었습니다"
+      },
+    });
   }
 </script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
