@@ -72,7 +72,7 @@
       </div>
     </div>
   <% end %>
-  <button type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기
+  <!-- <button type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기
     <form id="pgForm" name="pgForm" method="post">
       <input type="hidden" name="Amt" value="1500">
     	<input type="hidden" name="BuyerName" value="홍길동">
@@ -81,10 +81,9 @@
       <input type="hidden" name="price" value="가격">
     </form>
   </button>
-</div>
+</div> -->
 <script>
   function payment_btn(){
-    // document.getElementById("")
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
