@@ -73,13 +73,6 @@
     </div>
   <% end %>
   <button type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기</button>
-    <!-- <form id="pgForm" name="pgForm" method="post">
-      <input type="hidden" name="Amt" value="1500">
-    	<input type="hidden" name="BuyerName" value="홍길동">
-    	<input type="hidden" name="OrderName" value="결제테스트">
-      <input type="hidden" name="phone_num" value="폰번호">
-      <input type="hidden" name="price" value="가격">
-    </form> -->
 </div>
 <script>
   function payment_btn(){
@@ -89,8 +82,8 @@
       pg : 'inicis', // version 1.1.0부터 지원.
       pay_method : 'card',
       merchant_uid : 'merchant_' + new Date().getTime(),
-      name : '주문명:결제테스트',
-      amount : 1500,
+      name : '<%= @order.line_items.map{|line_item| line_item&.product&.title}.compact.join(", ") %>',
+      amount : <%= @order.line_items.sum(:amount) %>,
       buyer_email : 'iamport@siot.do',
       buyer_name : '구매자이름',
       buyer_tel : '010-6248-6986',
