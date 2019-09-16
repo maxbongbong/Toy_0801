@@ -82,7 +82,7 @@
       pg : 'inicis', // version 1.1.0부터 지원.
       pay_method : 'card',
       merchant_uid : 'merchant_' + new Date().getTime(),
-      name : '<%= @order.line_items.map{|line_item| line_item&.product&.title}.compact.join(", ") %>',
+      name : '<%= truncate @order.line_items.map{|line_item| line_item&.product&.title}.compact.join(", ") %>',
       amount : <%= @order.line_items.sum(:amount) %>,
       buyer_email : 'iamport@siot.do',
       buyer_name : '구매자이름',
@@ -104,8 +104,8 @@
       alert(msg);
     });
     $.ajax({
-      type:"POST",
-      url:"<%= order_path %>",
+      type:"GET",
+      url:"<%= order_path(@order) %>",
       datatype:"",
       success:function(data){
         alert:"결제가 완료 되었습니다"
