@@ -13,7 +13,9 @@
   .table th{
     text-align:center;
   }
-
+  .table td h5{
+    height:10px;
+  }
 </style>
 <div class="container" style="padding-top:2rem; margin-left:8rem;">
   <h4 class="title" style="line-height:3; text-align:center;">고객 센터 Q&A</h4>
@@ -53,7 +55,7 @@
             </td>
             <td>
               <div class="btn btn-dark mr-2">
-                <%= link_to "수정하기", edit_contact_path(contact) %>
+                <%= link_to "수정하기", edit_contact_path(contact), style:"hieght:10px;" %>
               </div>
               <div class="btn btn-dark">
                 <%= link_to "삭제하기", contact_path(contact), data:{method: :delete, confirm: "삭제하시겠습니까?"} %>
