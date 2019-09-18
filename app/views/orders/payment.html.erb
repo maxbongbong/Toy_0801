@@ -90,7 +90,7 @@
       buyer_tel : '010-6248-6986',
       buyer_addr : '서울특별시 강남구 삼성동',
       buyer_postcode : '123-456',
-      url: "<%= order_path(@order) %>"
+      url: "<%= payment_completed_order_path(@order) %>"
     }, function(rsp) {
       if ( rsp.success ) {
           var msg = '결제가 완료되었습니다.';
