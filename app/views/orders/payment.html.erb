@@ -89,6 +89,7 @@
       buyer_tel : '010-6248-6986',
       buyer_addr : '서울특별시 강남구 삼성동',
       buyer_postcode : '123-456',
+      url: "<%= order_path(@order) %>"
     }, function(rsp) {
       if ( rsp.success ) {
           var msg = '결제가 완료되었습니다.';
@@ -96,7 +97,7 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          m_redirect_url:"http://54.180.85.109<%= payment_completed_order_path(@order) %>";
+          url:"<%= order_path(@order) %>";
       } else {
           var msg = '결제에 실패하였습니다.';
           msg += '에러내용 : ' + rsp.error_msg;
@@ -105,8 +106,8 @@
     });
     $.ajax({
       type:"POST",
-      url:"http://54.180.85.109<%= payment_completed_order_path(@order) %>",
-      datatype:"",
+      url:"",
+      data:"",
       success:function(data){
         alert:"결제가 완료 되었습니다"
       },
