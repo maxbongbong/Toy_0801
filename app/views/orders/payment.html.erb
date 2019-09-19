@@ -103,7 +103,7 @@
           document.getElementById('pbt').onclick = function() {
           document.getElementById('myform').submit();
             return false;
-            window.location = '<%= payment_completed_order_path %>';
+            window.location = '<%= order_path(@order) %>';
           };
       } else {
           var msg = '결제에 실패하였습니다.';
