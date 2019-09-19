@@ -51,30 +51,28 @@
     </tfoot>
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
+  <%= form_for @order, url: payment_completed_order_path(@order), name:"myform", action:"action.jsp", class:"payment_st", method: :post, value:"결제하기", remote:true do |f| %>
     <div class="block p-4 border-top">
+      <%# <%= f.text_field :address_1, style:"margin-bottom:10px;padding:15px;border:solid 1px lightgray;border-radius:10px;width:700px;"%>
       <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
-        <%= form_for @order, url: payment_completed_order_path(@order), name:"myform", action:"action.jsp", class:"payment_st", method: :post do %>
-          <!-- <input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
-          <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
-          <!-- <input type="text" id="sample4_postcode" placeholder="우편번호" style="padding:5px; border-radius:5px; margin-left:5rem;"> -->
-          <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
-          <input type="button" class="btn btn-dark" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="padding:5px; border-radius:5px; margin-bottom:7px;">
-          <!-- <input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
-          <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
-          <span id="guide" style="color:#999"></span>
-          <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
-          <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
-          <%= f.hidden_field :state, value: :complete %>
-          <input type="button" class="btn btn-dark" onclick="payment_btn()" id="pbt" value="결제하기">
-          <%# <%= button "결제하기", class:"iamport-btn btn btn-dark", onclick:"payment-btn()", id:"pbt", style:"margin-left:16.7rem; margin-bottom:10px; width:6rem;" %> %>
-          <%# <!-- <button class="btn btn-dark" onclick="payment_btn()">결제하기</button> --> %>
-        <% end %>
+        <!-- <input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
+        <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <!-- <input type="text" id="sample4_postcode" placeholder="우편번호" style="padding:5px; border-radius:5px; margin-left:5rem;"> -->
+        <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
+        <input type="button" class="btn btn-dark" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="padding:5px; border-radius:5px; margin-bottom:7px;">
+        <!-- <input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
+        <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <span id="guide" style="color:#999"></span>
+        <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
+        <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <%= f.hidden_field :state, value: :complete %>
+        <!-- <input type="button" class="btn btn-dark" onclick="payment_btn()" id="pbt" value="결제하기"> -->
+        <%# <%= button "결제하기", class:"iamport-btn btn btn-dark", onclick:"payment-btn()", id:"pbt", style:"margin-left:16.7rem; margin-bottom:10px; width:6rem;" %> %>
       </div>
     </div>
-
-  <!-- <input type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기 -->
+  <% end %>
+  <input type="button" class="btn btn-dark" onclick="payment_btn()" style="float:right; border-radius:5px;">결제하기
 </div>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   // $(document).ready(function () {
     // console.log('함수실행')
