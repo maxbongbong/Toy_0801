@@ -105,18 +105,18 @@
           msg += '에러내용 : ' + rsp.error_msg;
           window.location = '<%= payment_order_path %>';
       }
-      alert('첫번째');
-      document.getElementById('pbt').onclick = function() {
-      document.getElementById('myform').submit();
-        return false;
+      // alert('첫번째');
+      // document.getElementById('pbt').onclick = function() {
+      // document.getElementById('myform').submit();
+      //   return false;
         window.location = '<%= order_path(@order) %>';
-      };  
+      <%# };   %>
     });
     alert('두번째');
 
     $.ajax({
       type:"POST",
-      url:"<%= order_path(@order) %>",
+      // url:"<%# order_path(@order) %>",
       dataType:"json",
       data:{
       // address_1:'<%# @order[:address_1] %>',
