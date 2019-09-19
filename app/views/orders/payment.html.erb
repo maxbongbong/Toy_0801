@@ -100,7 +100,7 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          document.getElementById('payment_btn').onclick = function() {
+          document.getElementById('payment_btn()').onclick = function() {
           document.getElementById('myform').submit();
             return false;
             window.location = '<%= payment_completed_order_path %>';
