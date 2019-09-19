@@ -113,7 +113,7 @@
       url:"<%= order_path(@order) %>",
       dataType:"json",
       data:{
-      address_1:'<%= params[:address_1] %>',
+      address_1:'<%= [:address_1] %>',
       },
       success:function(data){
         alert("결제가 완료 되었습니다")
