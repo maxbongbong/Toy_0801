@@ -62,14 +62,14 @@
         <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
-        <div><input type="button" class="btn btn-dark" type="submit" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"></div>
+        <div><input type="button" class="btn btn-dark" type="submit" onclick="document.getElementById('frm').submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"></div>
       </div>
     <% end %>
   </div>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-  function submit(){
+  function document.getElementById('frm').submit(){
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -93,6 +93,9 @@
           $('#frm').submit(
           function(){
             alert("호출성공");
+            $.ajax({
+            url: "<%= payment_completed_order_path(@order) %>"
+            })
           }
         );
       } else {
