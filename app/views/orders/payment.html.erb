@@ -78,6 +78,12 @@
   // $(document).ready(function () {
     // console.log('함수실행')
   function payment_btn(){
+    var address_1 = $(this).data("address_1");
+    var address_2 = $(this).data("address_2");
+    var address_3 = $(this).data("address_3");
+    var post_code = $(this).data("post_code");
+    var note = $(this).data("note");
+    var state = $(this).data("state")
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -104,30 +110,9 @@
           msg += '에러내용 : ' + rsp.error_msg;
           window.location = '<%= payment_order_path %>';
       }
-      $("#pbt").click(function() {
-        var address_1 = $(this).data("address_1");
-        var address_2 = $(this).data("address_2");
-        var address_3 = $(this).data("address_3");
-        var post_code = $(this).data("post_code");
-        var note = $(this).data("note");
-        var state = $(this).data("state")
-
-        $.ajax({
-          url: "<%= payment_completed_order_path %>",
-          type: "POST",
-          data: {
-            address_1: address_1.text(),
-            address_2: address_2.text(),
-            address_3: address_3.text(),
-            post_code: post_code.text(),
-            note: note.text(),
-            state: state.text()
           }
-        })
-        return false;
-      });
       window.location = '<%= order_path(@order) %>';
-    });
+    };
     alert('두번째');
 
     $.ajax({
@@ -135,7 +120,12 @@
       // url:"<%# order_path(@order) %>",
       dataType:"json",
       data:{
-      // address_1:'<%# @order[:address_1] %>',
+        address_1: address_1.text(),
+        address_2: address_2.text(),
+        address_3: address_3.text(),
+        post_code: post_code.text(),
+        note: note.text(),
+        state: state.text()
       },
       success:function(data){
         alert("결제가 완료 되었습니다")
