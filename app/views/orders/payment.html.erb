@@ -51,8 +51,16 @@
     </tfoot>
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
+  <script>
+    window.onload = function() {
+      document.getElementById('pbt').onclick = function() {
+          document.getElementById('frm').submit();
+          return false;
+      };
+    };
+  </script>
   <div class="block p-4 border-top">
-    <%= form_for @order, url: payment_completed_order_path(@order), name:"myform", action:"action.jsp", class:"payment_st", method: :post do |f| %>
+    <%= form_for @order,id:"frm" ,url: payment_completed_order_path(@order), name:"myform", action:"action.jsp", class:"payment_st", method: :post do |f| %>
     <%# <%= f.text_field :address_1, style:"margin-bottom:10px;padding:15px;border:solid 1px lightgray;border-radius:10px;width:700px;"%>
       <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
         <!-- <input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
@@ -78,12 +86,12 @@
   // $(document).ready(function () {
     // console.log('함수실행')
   function payment_btn(){
-    var address_1 = $(this).data("address_1");
-    var address_2 = $(this).data("address_2");
-    var address_3 = $(this).data("address_3");
-    var post_code = $(this).data("post_code");
-    var note = $(this).data("note");
-    var state = $(this).data("state")
+    // var address_1 = $(this).data("address_1");
+    // var address_2 = $(this).data("address_2");
+    // var address_3 = $(this).data("address_3");
+    // var post_code = $(this).data("post_code");
+    // var note = $(this).data("note");
+    // var state = $(this).data("state")
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
