@@ -75,14 +75,14 @@
   </div>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<!-- <script>
+<script>
   function payment() {
     document.getElementById('pbt').onclick = function() {
         document.getElementById('frm').submit();
         return false;
     };
   };
-</script> -->
+</script>
 <script>
   // $(document).ready(function () {
     // console.log('함수실행')
@@ -121,7 +121,6 @@
       }
           }
       window.location = '<%= order_path(@order) %>';
-    };
     alert('두번째');
 
     $.ajax({
