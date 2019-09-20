@@ -51,14 +51,7 @@
     </tfoot>
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
-  <script>
-    window.onload = function() {
-      document.getElementById('pbt').onclick = function() {
-          document.getElementById('frm').submit();
-          return false;
-      };
-    };
-  </script>
+
   <div class="block p-4 border-top">
     <%= form_for @order,id:"frm" ,url: payment_completed_order_path(@order), name:"myform", action:"action.jsp", class:"payment_st", method: :post do |f| %>
     <%# <%= f.text_field :address_1, style:"margin-bottom:10px;padding:15px;border:solid 1px lightgray;border-radius:10px;width:700px;"%>
@@ -82,6 +75,14 @@
   </div>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+  window.onload = function() {
+    document.getElementById('pbt').onclick = function() {
+        document.getElementById('frm').submit();
+        return false;
+    };
+  };
+</script>
 <script>
   // $(document).ready(function () {
     // console.log('함수실행')
