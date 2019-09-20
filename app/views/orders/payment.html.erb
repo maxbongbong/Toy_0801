@@ -117,6 +117,7 @@
 
     $.ajax({
       type:"POST",
+      url: "payment_completed_order_path(@order)",
       // url:"<%# order_path(@order) %>",
       dataType:"json",
       data:{
