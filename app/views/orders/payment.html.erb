@@ -56,16 +56,16 @@
     <%# <%= f.text_field :address_1, style:"margin-bottom:10px;padding:15px;border:solid 1px lightgray;border-radius:10px;width:700px;"%>
       <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
         <!-- <input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
-        <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;", data:{id: @order.id, address_1: address_1} %>
         <!-- <input type="text" id="sample4_postcode" placeholder="우편번호" style="padding:5px; border-radius:5px; margin-left:5rem;"> -->
-        <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
+        <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;", data:{id: @order.id, post_code: post_code}%>
         <input type="button" class="btn btn-dark" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="padding:5px; border-radius:5px; margin-bottom:7px;">
         <!-- <input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:35rem; padding:5px; border-radius:5px;"> -->
-        <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;", data:{id: @order.id, address_2: address_2}  %>
         <span id="guide" style="color:#999"></span>
-        <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
-        <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
-        <%= f.hidden_field :state, value: :complete %>
+        <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;", data:{id: @order.id, address_3: address_3}%>
+        <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;", data:{id: @order.id, note: note} %>
+        <%= f.hidden_field :state, value: :complete, data:{id: @order.id, state: state} %>
         <!-- <input type="button" class="btn btn-dark" onclick="payment_btn()" id="pbt" value="결제하기"> -->
         <%# <%= button "결제하기", class:"iamport-btn btn btn-dark", onclick:"payment-btn()", id:"pbt", style:"margin-left:16.7rem; margin-bottom:10px; width:6rem;" %> %>
         <input type="button" class="btn btn-dark" onclick="payment_btn()" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
@@ -104,12 +104,28 @@
           msg += '에러내용 : ' + rsp.error_msg;
           window.location = '<%= payment_order_path %>';
       }
-      // alert('첫번째');
-      document.getElementById('pbt').onclick = function() {
-      document.getElementById('myform').submit();
-        return false;
+      $("#pbt").click(function() {
+        var address_1 = $(this).data("address_1");
+        var address_2 = $(this).data("address_2");
+        var address_3 = $(this).data("address_3");
+        var post_code = $(this).data("post_code");
+        var note = $(this).data("note");
+        var state = $(this).data("state")
 
-      };
+        $.ajax({
+          url: "<%= payment_completed_order_path %>",
+          type: "POST",
+          data: {
+            address_1: address_1.text(),
+            address_2: address_2.text(),
+            address_3: address_3.text(),
+            post_code: post_code.text(),
+            note: note.text(),
+            state: state.text()
+          }
+        })
+        return false;
+      });
       window.location = '<%= order_path(@order) %>';
     });
     alert('두번째');
