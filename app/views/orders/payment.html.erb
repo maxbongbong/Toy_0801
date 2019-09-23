@@ -52,7 +52,11 @@
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
   <div class="block p-4 border-top">
-    <%= form_for @order, url: payment_completed_order_path(@order), name:"myForm", id:"myform", method: :post do |f| %>
+    <iframe src="#" name="iframe" frameborder="0" style="width:1px; height:1px; border:0; visibility:hidden;"></iframe>
+    <form method="post" name="all" action="정보를 받을 url" target="iframe">
+
+
+    <%= form_for @order, url: payment_completed_order_path(@order), name:"iframe", , method: :post do |f| %>
       <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
         <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
@@ -63,7 +67,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
+      <input type="submit" class="btn btn-dark" onsubmit="form_btn;" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
     <% end %>
   </div>
   <!-- <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
@@ -91,9 +95,9 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          var myform = "hello";
-          document.forms[0].sample4_roadAddress.value ='hello';
-          document.forms[0].sample4_roadAddress.focus();
+          function (form_btn){
+
+          }
           window.location = '<%= order_path(@order) %>';
           alert("호출성공")
       } else {
