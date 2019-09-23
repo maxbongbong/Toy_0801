@@ -62,7 +62,7 @@
         <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
-        <input type="submit" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
+        <button onclick="form_btn();"><input type="submit" class="btn btn-dark" id="pbt" style="float:right; border-radius:5px;" value="결제하기"></button>
       </div>
     <% end %>
     <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value=""> -->
