@@ -91,26 +91,18 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-
           var frm = document.getElementById("frm")
-            $.ajax({
-              data:"<%= params[:address_01] %>"
-            })
-          }
       } else {
-          var msg = '결제에 실패하였습니다.';
+          var msg = '결제에 실패하였습니다.'
           msg += '에러내용 : ' + rsp.error_msg;
           window.location = '<%= payment_order_path %>';
-      }
+      }),
       window.location = '<%= order_path(@order) %>';
-    });
     $.ajax({
       type:"POST",
       // url:"<%# order_path(@order) %>",
       dataType:"json",
-      data:{
-
-      },
+      data:{},
       success:function(data){
         alert("결제가 완료 되었습니다")
       },
