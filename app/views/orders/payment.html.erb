@@ -65,7 +65,7 @@
         <!-- <input type="button" class="btn btn-dark" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
       </div>
     <% end %>
-    <input type="submit" class="btn btn-dark" type="submit" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
+    <input type="button" class="btn btn-dark" type="submit" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
   </div>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -92,6 +92,7 @@
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
           var frm = document.getElementById("frm")
+          alert("호출성공")
       } else {
           var msg = '결제에 실패하였습니다.'
           msg += '에러내용 : ' + rsp.error_msg;
