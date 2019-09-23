@@ -52,19 +52,19 @@
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
   <div class="block p-4 border-top">
-    <%# form_for @order, url: payment_completed_order_path(@order), name:"myform", method: :post do |f| %>
-      <!-- <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
-        <%# <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %> %>
-        <%# <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %> %>
+    <%= form_for @order, url: payment_completed_order_path(@order), name:"myform", method: :post do |f| %>
+      <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
+        <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
         <input type="button" class="btn btn-dark" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="padding:5px; border-radius:5px; margin-bottom:7px;">
-        <%# <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %> %>
+        <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <span id="guide" style="color:#999"></span>
-        <%# <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%> %>
-        <%# <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %> %>
-        <%# <%= f.hidden_field :state, value: :complete %> %>
+        <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
+        <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
+        <%= f.hidden_field :state, value: :complete %>
         <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
-      <!-- </div> -->
-    <%# end %>
+      </div>
+    <% end %>
     <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value=""> -->
   </div>
   <input type="button" id="button1" onclick="form_btn();" value="결제하기">
@@ -72,7 +72,6 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function form_btn(){
-    alert('실행')
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
