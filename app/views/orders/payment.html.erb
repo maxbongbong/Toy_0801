@@ -62,16 +62,15 @@
         <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
-        <input type="button" class="btn btn-dark" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
+        <!-- <input type="button" class="btn btn-dark" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
       </div>
     <% end %>
-    <!-- <input type="submit" class="btn btn-dark" type="submit" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
+    <input type="submit" class="btn btn-dark" type="submit" onclick="submit();" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
   </div>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function submit(){
-    alert("event");
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -92,9 +91,8 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          $('#frm').submit(
-          function(){
-            alert("호출성공");
+
+          var frm = document.getElementById("frm")
             $.ajax({
               data:"<%= params[:address_01] %>"
             })
@@ -107,8 +105,6 @@
       }
       window.location = '<%= order_path(@order) %>';
     });
-    alert('두번째');
-
     $.ajax({
       type:"POST",
       // url:"<%# order_path(@order) %>",
