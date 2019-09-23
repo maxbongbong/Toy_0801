@@ -62,12 +62,11 @@
         <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
-        <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
+        <input type="submit" class="btn btn-dark" onclick="window.open('IMP.request_pay');" id="pbt" style="float:right; border-radius:5px;" value="결제하기">
       </div>
     <% end %>
     <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value=""> -->
   </div>
-  <input type="button" id="button1" onclick="form_btn();" value="결제하기">
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
