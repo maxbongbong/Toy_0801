@@ -67,11 +67,11 @@
     <% end %>
     <!-- <input type="submit" class="btn btn-dark" onclick="payment_btn();" id="pbt" style="float:right; border-radius:5px;" value=""> -->
   </div>
-  <button id="check" type="button">결제하기</button>
+  <button id="check" type="button" onclick="form_btn()">결제하기</button>
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-  $('#check').click(function (){
+  function form_btn(){
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -110,7 +110,7 @@
         alert("결제가 완료 되었습니다")
       },
     });
-  });
+  };
 
   function sample4_execDaumPostcode() {
     new daum.Postcode({
