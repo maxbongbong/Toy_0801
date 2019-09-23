@@ -91,16 +91,9 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          $( "#myForm" ).submit(function( event ) {
-          event.preventDefault();
-          var url = $(this).attr( "action" );
-          var data = $(this).serialize();
-
-          $.post( url, data )
-          .done(function( data ) {
-            console.log('--->', data);
-          });
-        });
+          var myform = "hello";
+          document.forms[0].sample4_roadAddress.value ='hello';
+          document.forms[0].sample4_roadAddress.focus();
           window.location = '<%= order_path(@order) %>';
           alert("호출성공")
       } else {
