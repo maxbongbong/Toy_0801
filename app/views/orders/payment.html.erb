@@ -70,9 +70,9 @@
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-  $("#pbt").click(function (){
+  function submit(){
   // function submit(){
-    var event_test = event;
+    var address_1 = '<%= params[:address_1] %>'
     alert("event");
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
@@ -98,7 +98,7 @@
           function(){
             alert("호출성공");
             $.ajax({
-
+              data:"<%= params[:address_01] %>"
             })
           }
         );
@@ -122,7 +122,7 @@
         alert("결제가 완료 되었습니다")
       },
     });
-  });
+  };
 
   function sample4_execDaumPostcode() {
     new daum.Postcode({
