@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="button" class="btn btn-dark" onclick="form_btn();" value="결제하기">
+      <input type="button" class="btn btn-dark" onclick="search();" value="결제하기">
     <% end %>
   </div>
   <!-- <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
@@ -92,9 +92,9 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          // document.frm.action = '<%# payment_completed_order_path(@order) %>';
-          // document.frm.method = "post";
-          // document.frm.submit();
+          document.frm.action = 'search.jsp';
+          document.frm.method = "post";
+          document.frm.submit();
           window.location = '<%= order_path(@order) %>';
           alert("호출2")
       } else {
@@ -105,7 +105,7 @@
     });
     $.ajax({
       type:"POST",
-      // url:"<%# order_path(@order) %>",
+      url:"<%= payment_completed_order_path(@order)%>",
       dataType:"json",
       data:{},
       success:function(data){
