@@ -59,7 +59,7 @@
         <input type="button" class="btn btn-dark" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="padding:5px; border-radius:5px; margin-bottom:7px;">
         <%= f.text_field :address_2, id:"sample4_jibunAddress", placeholder:"지번주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <span id="guide" style="color:#999"></span>
-        <%= f.text_field :address_3, placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
+        <%= f.text_field :address_3, id:"rest_address", placeholder: "나머지 주소 입력", style:"margin-bottom:10px; padding:5px; border-radius:5px; width:35rem;"%>
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
@@ -71,6 +71,14 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function search(){
+    var address_2 = $('#sample4_jibunAddress').val();
+    var address_3 = $('#rest_address').val();
+    var post_code = $('#sample4_postcode').val();
+    var data = {
+      address_2 : sample4_jibunAddress,
+      address_3 : rest_address,
+      post_code : sample4_postcode
+    };
     var address_1 = document.getElementById("sample4_roadAddress").value
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
@@ -93,8 +101,6 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          address_1.submit()
-          alert(address_1).txt
           window.location = "<%= payment_completed_order_path(@order) %>"
           alert("호출2")
       } else {
