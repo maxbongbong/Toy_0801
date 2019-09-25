@@ -95,6 +95,7 @@
           msg += '카드 승인번호 : ' + rsp.apply_num;
           address_1.submit()
           alert(address_1).txt
+          window.location = "<%= payment_completed_order_path(@order) %>"
           alert("호출2")
       } else {
           var msg = '결제에 실패하였습니다.'
