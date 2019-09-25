@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="submit" value="저장하기" style="display:none" />
+      <input type="submit" id="submitSave" value="저장하기" style="display:none" />
       <input type="button" class="btn btn-dark" value="결제하기" onclick="pay();"/>
     <% end %>
   </div>
@@ -88,17 +88,16 @@
       buyer_postcode : '123-456',
     }, function(rsp) {
       if ( rsp.success ) {
-          alert('호출1')
           var msg = '결제가 완료되었습니다.';
           msg += '고유ID : ' + rsp.imp_uid;
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-
+          alert(msg)
           showData();
+          $('#submitSave').submit();
 
-
-          window.location = "<%= order_path(@order) %>"
+          // window.location = "<%# order_path(@order) %>"
 
 
       } else {
