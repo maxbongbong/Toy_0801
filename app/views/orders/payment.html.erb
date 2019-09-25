@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="button" class="btn btn-dark" onclick="search(sample4_roadAddress);" value="결제하기">
+      <input type="button" class="btn btn-dark" onclick="search();" value="결제하기">
     <% end %>
   </div>
   <!-- <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
@@ -71,7 +71,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function search(){
-    var form = getElementById("<%= payment_completed_order_path(@order) %>")
+    var address_1 = getElementById.(sample4_roadAddress)
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -93,7 +93,8 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          form.submit()
+          address_1.submit()
+          alert(address_1).txt
           alert("호출2")
       } else {
           var msg = '결제에 실패하였습니다.'
