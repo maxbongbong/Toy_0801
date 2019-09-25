@@ -92,7 +92,7 @@
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
           document.frm.action = '<%= payment_completed_order_path(@order) %>';
-          document.frm.method = "POST";
+          document.frm.method = "post";
           document.frm.submit();
           window.location = '<%= order_path(@order) %>';
           alert("호출성공")
