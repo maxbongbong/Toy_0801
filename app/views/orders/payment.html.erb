@@ -71,6 +71,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function form() {
+    var form_sum
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -91,7 +92,7 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          function() {
+          function form_sum() {
               document.getElementById('edit_order_45').submit();
               return false;
             }
