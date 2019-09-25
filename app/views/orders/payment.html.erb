@@ -64,13 +64,16 @@
         <%= f.hidden_field :state, value: :complete %>
       </div>
       <input type="submit" id="submitSave" value="저장하기" style="visibility:hidden" />
-      <input type="button" class="btn btn-dark" value="결제하기" onclick="pay();"/>
+      <input type="button" class="btn btn-dark" value="결제하기" onclick="tempPay();"/>
     <% end %>
   </div>
   <!-- <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
 </div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+  function tempPay(){
+    $('#submitSave').submit();
+  }
   function pay(){
 
     var IMP = window.IMP; // 생략가능
