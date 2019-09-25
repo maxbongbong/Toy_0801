@@ -52,7 +52,7 @@
   </table>
   <h5 class="row px-3 py-3">주소 입력</h5>
   <div class="block p-4 border-top">
-    <%= form_for @order, url: payment_completed_order_path(@order), name:"frm", id:"form", method: :post do |f| %>
+    <%= form_for @order, url: payment_completed_order_path(@order), name:"frm", method: :post do |f| %>
       <div class="button button-outline zipcode_btn col-30 my-3" style="padding-bottom:8px; border-radius:5px;">
         <%= f.text_field :address_1, id:"sample4_roadAddress", placeholder:"도로명주소", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.text_field :post_code, id:"sample4_postcode", placeholder:"우편번호", style:"padding:5px; border-radius:5px; margin-left:5rem;" %>
@@ -63,8 +63,8 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="button" class="btn btn-dark" onclick="document.getElementById('form').submit();"
-      <a href="#" onclick="document.getElementById('form').submit();">
+      <input type="button" class="btn btn-dark" onclick="document.getElementById('edit_order_43').submit();"
+      <a href="#" onclick="document.getElementById('edit_order_43').submit();">
            전송 </a>
     <% end %>
   </div>
