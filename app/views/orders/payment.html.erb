@@ -71,6 +71,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function search(){
+    var form = getElementByName("<#frm>")
     var IMP = window.IMP; // 생략가능
     IMP.init('imp37336175')
     IMP.request_pay({
@@ -92,10 +93,7 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          document.frm.action = 'search.jsp';
-          document.frm.method = "post";
-          document.frm.submit();
-          window.location = '<%= order_path(@order) %>';
+          form.submit()
           alert("호출2")
       } else {
           var msg = '결제에 실패하였습니다.'
