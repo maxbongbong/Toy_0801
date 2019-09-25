@@ -72,10 +72,10 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function tempPay(){
-    alert('aaa');
-    $('#edit_order_48').submit();
+    var number = '<%= @order %>'
+    alert('order:' + number);
+    $('#edit_order_' + number).submit();
 
-    alert('bbb');
   }
   function pay(){
 
