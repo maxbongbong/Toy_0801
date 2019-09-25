@@ -104,7 +104,7 @@
     });
     $.ajax({
       type:"POST",
-      url:"<%= payment_completed_order_path(@order)%>",
+      // url:"<%# payment_completed_order_path(@order)%>",
       dataType:"json",
       data:{},
       success:function(data){
