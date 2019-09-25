@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="button" class="btn btn-dark" onclick="search(order_params[address_1]);" value="결제하기">
+      <input type="button" class="btn btn-dark" onclick="search([address_1]);" value="결제하기">
     <% end %>
   </div>
   <!-- <input type="button" class="btn btn-dark" onclick="form_btn();" id="pbt" style="float:right; border-radius:5px;" value="결제하기"> -->
