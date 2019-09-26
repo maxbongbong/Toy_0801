@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <!-- <input type="submit" value="저장하기" style="display:none" /> -->
+      <input type="submit" value="저장하기" style="display:none" />
       <input type="button" class="btn btn-dark" value="결제하기" style="float:right; border-radius:5px;" onclick="tempPay();"/>
     <% end %>
   </div>
@@ -85,8 +85,8 @@
   //     pg : 'inicis', // version 1.1.0부터 지원.
   //     pay_method : 'card',
   //     merchant_uid : 'merchant_' + new Date().getTime(),
-  //     name : '<%= truncate @order.line_items.map{|line_item| line_item&.product&.title}.compact.join(", ") %>',
-  //     amount : <%= @order.line_items.sum(:amount) %>,
+  //     name : '<%# truncate @order.line_items.map{|line_item| line_item&.product&.title}.compact.join(", ") %>',
+  //     amount : <%# @order.line_items.sum(:amount) %>,
   //     buyer_email : 'iamport@siot.do',
   //     buyer_name : '구매자이름',
   //     buyer_tel : '010-6248-6986',
