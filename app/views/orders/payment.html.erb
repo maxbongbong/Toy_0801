@@ -63,7 +63,7 @@
         <%= f.text_field :note, placeholder: "ex) 부재 시 경비실에 맡겨주세요.", style:"width:35rem; padding:5px; border-radius:5px;" %>
         <%= f.hidden_field :state, value: :complete %>
       </div>
-      <input type="submit" value="저장하기" style="display:none" />
+      <input type="submit" value="저장하기" style="display:none">
       <input type="button" class="btn btn-dark" value="결제하기" style="float:right; border-radius:5px;" onclick="pay();">
     <% end %>
   </div>
@@ -93,10 +93,8 @@
           msg += '상점 거래ID : ' + rsp.merchant_uid;
           msg += '결제 금액 : ' + rsp.paid_amount;
           msg += '카드 승인번호 : ' + rsp.apply_num;
-          function tempPay(){
-            var number = '<%= @order.id %>'
-            $('#edit_order_' + number).submit();
-          }
+          var number = '<%= @order.id %>'
+          $('#edit_order_' + number).submit();
       } else {
           var msg = '결제에 실패하였습니다.'
           msg += '에러내용 : ' + rsp.error_msg;
